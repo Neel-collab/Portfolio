@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neel Poddar — BCA Student, Cybersecurity Enthusiast & Full-Stack Developer. Portfolio showcasing projects, experience, and skills in tech and security.">
+    <meta name="keywords" content="Neel Poddar, Portfolio, Cybersecurity, Developer, BCA, Christ University">
+    <meta name="author" content="Neel Poddar">
+    <title>Neel Poddar — Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Audio -->
+    <audio id="bgMusic" src="bgm.mp3" loop></audio>
+
+    <!-- Glass Background Elements -->
+    <div class="glass-bg-container">
+        <div class="glass-orb orb-1"></div>
+        <div class="glass-orb orb-2"></div>
+        <div class="glass-orb orb-3"></div>
+        <div class="glass-overlay"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <span class="loader-text">NEEL PODDAR</span>
+        </div>
+        <div class="loader-progress">
+            <div class="loader-bar" id="loaderBar"></div>
+        </div>
+        <button class="btn btn-primary" id="enterBtn" style="display: none; opacity: 0; transition: opacity 0.5s;">
+            <span>ENTER TERMINAL</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>NP<span class="logo-bracket">/&gt;</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" class="nav-link" data-text="About" data-magnetic>About</a>
+            <a href="#experience" class="nav-link" data-text="Experience" data-magnetic>Experience</a>
+            <a href="#skills" class="nav-link" data-text="Skills" data-magnetic>Skills</a>
+            <a href="#projects" class="nav-link" data-text="Projects" data-magnetic>Projects</a>
+            <a href="#achievements" class="nav-link" data-text="Achievements" data-magnetic>Achievements</a>
+            <a href="#contact" class="nav-link" data-text="Contact" data-magnetic>Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="sound-toggle" id="soundToggle" aria-label="Toggle Background Music" data-magnetic>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            </button>
+            <button class="hack-toggle" id="hackToggle" aria-label="Toggle Hack Mode" data-magnetic>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-tag">
+                    <span class="tag-dot"></span>
+                    <span>Available for Opportunities</span>
+                </div>
+                <h1 class="hero-name">
+                    <span class="line line-1">
+                        <span class="word" data-delay="0">NEEL</span>
+                    </span>
+                    <span class="line line-2">
+                        <span class="word" data-delay="0.15">PODDAR</span>
+                    </span>
+                </h1>
+                <div class="hero-titles">
+                    <span class="hero-title-item" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    BCA Student at Christ University with expertise in Cybersecurity,
+                    Full-Stack Development, and Security Operations. Building the future of digital security.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary" data-magnetic>
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary" data-magnetic>
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Internships</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="8">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Achievements</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-3d">
+                <canvas id="robotCanvas"></canvas>
+                <div class="hero-3d-glow"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">01</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">About Me</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="about-intro reveal-text">
+                        I'm <em class="highlight">Neel Poddar</em>, a BCA student at Christ University with a
+                        burning passion for <em class="highlight">cybersecurity</em> and <em class="highlight">software development</em>.
+                    </p>
+                    <p class="about-body reveal-text">
+                        With internship experience spanning security operations, analytics, property law tech,
+                        and design — I bring a unique multi-disciplinary perspective to every project.
+                        My journey has taken me through the halls of JW Marriott, the security trenches of AllCargo ECU,
+                        and the innovation labs of Christ University's Centre for Research.
+                    </p>
+                    <p class="about-body reveal-text">
+                        When I'm not writing code or analyzing threat vectors, you'll find me
+                        strumming guitar, performing on stage with theater productions,
+                        or leading as my department's elected Fest Representative.
+                    </p>
+                    <div class="about-details">
+                        <div class="detail-item reveal-text">
+                            <span class="detail-icon">📍</span>
+                            <span>Thane, Maharashtra</span>
+                        </div>
+                        <div class="detail-item reveal-text">
+                            <span class="detail-icon">🎓</span>
+                            <span>Christ University, BCA (2024–Present)</span>
+                        </div>
+                        <div class="detail-item reveal-text">
+                            <span class="detail-icon">🎯</span>
+                            <span>Aspiring Security Analyst @ IBM</span>
+                        </div>
+                        <div class="detail-item reveal-text">
+                            <span class="detail-icon">🌍</span>
+                            <span>English · Hindi · Marathi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <div class="about-avatar">
+                            <div class="avatar-ring"></div>
+                            <div class="avatar-initials">NP</div>
+                        </div>
+                        <div class="about-card-info">
+                            <h3>Neel Poddar</h3>
+                            <p>Cybersecurity Enthusiast</p>
+                            <p class="card-uni">Christ University · BCA</p>
+                        </div>
+                        <div class="about-card-stats">
+                            <div class="card-stat">
+                                <span class="card-stat-val">84%</span>
+                                <span class="card-stat-lbl">ICSE</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-val">75%</span>
+                                <span class="card-stat-lbl">ISC</span>
+                            </div>
+                            <div class="card-stat">
+                                <span class="card-stat-val">2.9</span>
+                                <span class="card-stat-lbl">Best GPA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section class="section experience" id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">02</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">Experience</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item reveal-text" data-side="left" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="timeline-period">Intern</span>
+                        <h3 class="timeline-company">Taral (Startup)</h3>
+                        <p class="timeline-desc">Working on web analytics using PostHog to track user behavior and KPIs. Concurrently testing and ensuring the quality of the Dance Assist platform to deliver a seamless user experience.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Web Analytics</span>
+                            <span class="tag">PostHog</span>
+                            <span class="tag">QA Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-text" data-side="right" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="timeline-period">Security Intern</span>
+                        <h3 class="timeline-company">AllCargo ECU Limited</h3>
+                        <p class="timeline-desc">Worked in the Information Security Department as a Security Operations Center Monitoring (SOCM) intern. Gained hands-on experience with enterprise security tools and real-time threat monitoring.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">SOCM</span>
+                            <span class="tag">InfoSec</span>
+                            <span class="tag">Threat Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-text" data-side="left" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="timeline-period">Billing & Operations Intern</span>
+                        <h3 class="timeline-company">FalconX (at Dhaval Vussonji & Associates)</h3>
+                        <p class="timeline-desc">Worked at a Property Law Firm in Mumbai as part of the Billing Department and invoicing team, managing financial operations and client workflows.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Billing</span>
+                            <span class="tag">Operations</span>
+                            <span class="tag">Legal Tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-text" data-side="right" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="timeline-period">Marketing Intern</span>
+                        <h3 class="timeline-company">JW Marriott Mumbai Sahar</h3>
+                        <p class="timeline-desc">Worked as an intern organizing marketing campaigns at Christ University in collaboration with JW Marriott, gaining exposure to hospitality marketing and brand strategy.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Marketing</span>
+                            <span class="tag">Brand Strategy</span>
+                            <span class="tag">Events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-text" data-side="left" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="timeline-period">Analytics Intern</span>
+                        <h3 class="timeline-company">Corizo Edutech</h3>
+                        <p class="timeline-desc">Worked with the Analytics Department, gaining hands-on experience in Microsoft Excel, data analysis, and reporting workflows.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-text" data-side="right" data-tilt>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="timeline-period">Design Intern</span>
+                        <h3 class="timeline-company">Centre for Research, Christ University</h3>
+                        <p class="timeline-desc">Contributed as a design intern, creating flyers and promotional materials for the university's research initiatives and academic programs.</p>
+                        <div class="timeline-tags">
+                            <span class="tag">Design</span>
+                            <span class="tag">Branding</span>
+                            <span class="tag">Research</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section class="section skills" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">03</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">Skills & Technologies</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal-text">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                        </div>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-pill" data-level="90">C</div>
+                        <div class="skill-pill" data-level="90">C++</div>
+                        <div class="skill-pill" data-level="85">Java</div>
+                        <div class="skill-pill" data-level="85">Python</div>
+                        <div class="skill-pill" data-level="75">C#</div>
+                        <div class="skill-pill" data-level="70">Visual Basic</div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal-text">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3>Web & App Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-pill" data-level="90">HTML5</div>
+                        <div class="skill-pill" data-level="85">CSS3</div>
+                        <div class="skill-pill" data-level="85">JavaScript</div>
+                        <div class="skill-pill" data-level="75">React</div>
+                        <div class="skill-pill" data-level="70">Android Studio</div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal-text">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M21 5v14c0 1.66-4 3-9 3s-9-1.34-9-3V5"/></svg>
+                        </div>
+                        <h3>Databases</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-pill" data-level="80">MySQL</div>
+                        <div class="skill-pill" data-level="75">MongoDB</div>
+                        <div class="skill-pill" data-level="75">NoSQL</div>
+                        <div class="skill-pill" data-level="80">DBMS</div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal-text">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Cybersecurity</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-pill" data-level="80">CloudSek</div>
+                        <div class="skill-pill" data-level="80">Zscaler</div>
+                        <div class="skill-pill" data-level="75">Tenable</div>
+                        <div class="skill-pill" data-level="75">BitSight</div>
+                        <div class="skill-pill" data-level="85">SOC Monitoring</div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal-text">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-pill" data-level="90">Leadership</div>
+                        <div class="skill-pill" data-level="85">Communication</div>
+                        <div class="skill-pill" data-level="85">Creativity</div>
+                        <div class="skill-pill" data-level="80">Team Management</div>
+                        <div class="skill-pill" data-level="80">Problem Solving</div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal-text">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+                        </div>
+                        <h3>Core CS</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-pill" data-level="80">Data Structures</div>
+                        <div class="skill-pill" data-level="80">Algorithms</div>
+                        <div class="skill-pill" data-level="75">OOP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section class="section projects" id="projects">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">04</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">Featured Projects</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- AegisSec -->
+                <div class="project-card glass-card featured reveal-text" data-tilt>
+                    <div class="card-shimmer"></div>
+                    <div class="project-badge">⭐ Featured</div>
+                    <div class="project-icon-wrap">
+                        <div class="project-icon">🛡️</div>
+                    </div>
+                    <h3 class="project-name">AegisSec — Security Operations Terminal</h3>
+                    <p class="project-desc">
+                        A full-stack security operations center (SOC) platform built with ASP.NET Core 9, Blazor WebAssembly, and MongoDB.
+                        Features a real-time threat monitoring dashboard with a cyber-synth glitch UI,
+                        2FA authentication via Twilio, dynamic security log visualization,
+                        IP tracking, and live system statistics. Designed for enterprise-grade security monitoring
+                        with a futuristic terminal-inspired interface.
+                    </p>
+                    <div class="project-tech">
+                        <span>ASP.NET Core 9</span>
+                        <span>Blazor WASM</span>
+                        <span>MongoDB</span>
+                        <span>C#</span>
+                        <span>Twilio 2FA</span>
+                        <span>REST API</span>
+                        <span>Glitch UI</span>
+                    </div>
+                    <div class="project-highlights">
+                        <div class="ph-item">
+                            <span class="ph-icon">🔐</span>
+                            <span>Two-Factor Authentication with Twilio SMS</span>
+                        </div>
+                        <div class="ph-item">
+                            <span class="ph-icon">📊</span>
+                            <span>Real-time dashboard with system stats & security logs</span>
+                        </div>
+                        <div class="ph-item">
+                            <span class="ph-icon">🌐</span>
+                            <span>IP tracking & live time ticker</span>
+                        </div>
+                        <div class="ph-item">
+                            <span class="ph-icon">🎨</span>
+                            <span>Cyber-synth glitch-themed terminal UI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ID Card Background Remover -->
+                <div class="project-card glass-card reveal-text" data-tilt>
+                    <div class="card-shimmer"></div>
+                    <div class="project-icon-wrap">
+                        <div class="project-icon">🖼️</div>
+                    </div>
+                    <h3 class="project-name">ID Card Background Remover</h3>
+                    <p class="project-desc">
+                        A Python-based image processing tool developed under the guidance of
+                        Dr. Ashok Immanuel (Associate Director at Christ University). Automates the clearing of
+                        student images and background removal for college ID card production — streamlining
+                        the administrative pipeline for thousands of student cards.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Image Processing</span>
+                        <span>OpenCV</span>
+                        <span>Automation</span>
+                    </div>
+                    <div class="project-highlights">
+                        <div class="ph-item">
+                            <span class="ph-icon">🤖</span>
+                            <span>Automated background removal pipeline</span>
+                        </div>
+                        <div class="ph-item">
+                            <span class="ph-icon">👨‍🏫</span>
+                            <span>Research-guided by Associate Director</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Website -->
+                <div class="project-card glass-card reveal-text" data-tilt>
+                    <div class="card-shimmer"></div>
+                    <div class="project-icon-wrap">
+                        <div class="project-icon">🚀</div>
+                    </div>
+                    <h3 class="project-name">This Portfolio Website</h3>
+                    <p class="project-desc">
+                        A premium, investor-grade portfolio built with vanilla HTML, CSS, and JavaScript.
+                        Features a custom procedural 3D AI robot rendered with Three.js, GSAP-powered scroll animations,
+                        hot pink shimmer effects, glassmorphism cards, particle systems, and a
+                        cinematic dark theme — all without any build tools or frameworks.
+                    </p>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Three.js</span>
+                        <span>GSAP</span>
+                        <span>WebGL</span>
+                    </div>
+                    <div class="project-highlights">
+                        <div class="ph-item">
+                            <span class="ph-icon">🤖</span>
+                            <span>Procedural 3D AI robot with glow effects</span>
+                        </div>
+                        <div class="ph-item">
+                            <span class="ph-icon">✨</span>
+                            <span>Hot pink shimmer animations & particle systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ACHIEVEMENTS ==================== -->
+    <section class="section achievements" id="achievements">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">05</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">Achievements</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🎮</div>
+                    <h4>Gamecraft Workshop</h4>
+                    <p>Student coordinator for a game development workshop</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🔒</div>
+                    <h4>Cybersecurity Certified</h4>
+                    <p>Completed certification course by Tech Mahindra</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🎭</div>
+                    <h4>CUIE Member</h4>
+                    <p>Active member of Christ University Interactive Entertainment</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🏆</div>
+                    <h4>Fest Representative</h4>
+                    <p>Elected as department Fest Representative 2024-25</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🎪</div>
+                    <h4>Theater Arts</h4>
+                    <p>Former member of Nuts and Bolts Productions</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">💻</div>
+                    <h4>Coding Contest Runner-Up</h4>
+                    <p>Won Runner up in Interschool Coding Contest</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🛡️</div>
+                    <h4>Cybersmart Prefect</h4>
+                    <p>Elected as Cybersmart prefect in High School</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🎵</div>
+                    <h4>Musical Champion</h4>
+                    <p>Won Interschool Musical Event — Panache</p>
+                </div>
+                <div class="achievement-card glass-card reveal-text">
+                    <div class="card-shimmer"></div>
+                    <div class="ach-icon">🎸</div>
+                    <h4>Red-Alert Band</h4>
+                    <p>Former member of Red-Alert musical band</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GOALS ==================== -->
+    <section class="section goals" id="goals">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">06</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">Goals & Aspirations</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="goals-roadmap">
+                <div class="goal-node reveal-text">
+                    <div class="goal-connector"></div>
+                    <div class="goal-dot">
+                        <div class="goal-pulse"></div>
+                    </div>
+                    <div class="goal-content glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="goal-stage">Current</span>
+                        <h4>Honors with Research</h4>
+                        <p>Complete Honors with Research from Christ University</p>
+                    </div>
+                </div>
+                <div class="goal-node reveal-text">
+                    <div class="goal-connector"></div>
+                    <div class="goal-dot">
+                        <div class="goal-pulse"></div>
+                    </div>
+                    <div class="goal-content glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="goal-stage">Next</span>
+                        <h4>MSc Global Security @ NYU</h4>
+                        <p>Pursue MSc in Global Security from New York University</p>
+                    </div>
+                </div>
+                <div class="goal-node reveal-text">
+                    <div class="goal-connector"></div>
+                    <div class="goal-dot">
+                        <div class="goal-pulse"></div>
+                    </div>
+                    <div class="goal-content glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="goal-stage">Growth</span>
+                        <h4>Cybersecurity Domain Expertise</h4>
+                        <p>Master the domain of Cybersecurity with advanced certifications and research</p>
+                    </div>
+                </div>
+                <div class="goal-node reveal-text">
+                    <div class="goal-connector"></div>
+                    <div class="goal-dot">
+                        <div class="goal-pulse"></div>
+                    </div>
+                    <div class="goal-content glass-card">
+                        <div class="card-shimmer"></div>
+                        <span class="goal-stage">Vision</span>
+                        <h4>Security Analyst @ IBM</h4>
+                        <p>Join IBM as a Security Analyst, protecting enterprise systems at global scale</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="section contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">07</span>
+                <h2 class="section-title">
+                    <span class="title-shimmer">Let's Connect</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <p class="contact-subtitle reveal-text">
+                    Interested in collaborating or have an opportunity? Let's talk.
+                </p>
+                <div class="contact-cards">
+                    <a href="mailto:neelsahil.poddar@bach.christuniversity.in" class="contact-card glass-card reveal-text">
+                        <div class="card-shimmer"></div>
+                        <div class="contact-icon">✉️</div>
+                        <h4>Email</h4>
+                        <p>neelsahil.poddar@bach.christuniversity.in</p>
+                    </a>
+                    <a href="tel:+919136599532" class="contact-card glass-card reveal-text">
+                        <div class="card-shimmer"></div>
+                        <div class="contact-icon">📱</div>
+                        <h4>Phone</h4>
+                        <p>+91 9136599532</p>
+                    </a>
+                    <div class="contact-card glass-card reveal-text">
+                        <div class="card-shimmer"></div>
+                        <div class="contact-icon">📍</div>
+                        <h4>Location</h4>
+                        <p>Thane, Maharashtra, India</p>
+                    </div>
+                </div>
+                <div class="contact-cta reveal-text">
+                    <a href="mailto:neelsahil.poddar@bach.christuniversity.in" class="btn btn-primary btn-large" data-magnetic>
+                        <span>Send me an Email</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-bracket">&lt;</span>NP<span class="logo-bracket">/&gt;</span>
+            </div>
+            <p class="footer-tagline">Securing the Digital Future, One Line of Code at a Time.</p>
+            <div class="footer-divider"></div>
+            <p class="footer-copy">&copy; 2026 Neel Poddar. Crafted with passion.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE TERMINAL ==================== -->
+    <div class="terminal-widget" id="terminalWidget">
+        <div class="terminal-header" id="terminalHeader">
+            <div class="term-dots">
+                <span class="term-dot close" id="termClose"></span>
+                <span class="term-dot min"></span>
+                <span class="term-dot max"></span>
+            </div>
+            <div class="term-title">aegis_sec@neel_poddar:~</div>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+            <div class="term-output" id="termOutput">
+                <div>Welcome to AegisSec Terminal v2.0</div>
+                <div>Type '<span class="term-highlight">help</span>' to see available commands.</div>
+            </div>
+            <div class="term-input-line">
+                <span class="term-prompt">guest@neel_portfolio:~$</span>
+                <input type="text" id="termInput" autocomplete="off" spellcheck="false" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Terminal Button -->
+    <button class="term-toggle-btn" id="termToggleBtn" data-magnetic>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

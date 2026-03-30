@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AegisSec | Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+
+<body>
+
+    <div id="particles-container"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar hidden">
+        <div class="logo">
+            <span class="gold-text">Aegis</span>Sec
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#techstack">Architecture</a></li>
+            <li><a href="#integrations">Integrations</a></li>
+            <li><a href="#flowchart">Flowchart</a></li>
+            <li><a href="#scalability">Scalability</a></li>
+            <li><a href="#schema">Schema</a></li>
+            <li><a href="#access">Access</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1 class="fade-in-up staggered-1">ENTER THE <span class="gold-gradient">SOVEREIGN</span> COMMAND</h1>
+                <p class="subtitle fade-in-up staggered-2">The ultimate monolithic Security Operations Center (SOC) designed
+                    in exquisite VB.NET and MongoDB architecture.</p>
+                <div class="hero-cta fade-in-up staggered-3">
+                    <a href="#features" class="btn primary-btn shimmer-btn">Explore Systems</a>
+                    <a href="#techstack" class="btn secondary-btn">View Architecture</a>
+                </div>
+            </div>
+            
+            <div class="hero-3d fade-in-up staggered-2">
+                <!-- 3D Laptop placed properly, not overlapping text -->
+                <model-viewer 
+                    id="scroll-model" 
+                    src="gaming_laptop.glb" 
+                    alt="3D Gaming Laptop" 
+                    shadow-intensity="1" 
+                    exposure="1.2" 
+                    environment-image="neutral" 
+                    camera-controls
+                    camera-orbit="0deg 75deg 105%"
+                    auto-rotate 
+                    rotation-per-second="10deg" 
+                    loading="eager"
+                    disable-zoom 
+                    disable-pan 
+                    disable-tap 
+                    style="width: 100%; height: 500px; border:none; background: transparent; --poster-color: transparent;">
+                </model-viewer>
+            </div>
+        </div>
+
+        <div class="hero-metrics fade-in-up staggered-3">
+                <div class="metric-glass">
+                    <i class="fa-solid fa-server gold-text"></i>
+                    <div class="metric-data">
+                        <span class="metric-value counter" data-target="99.99">0</span><span
+                            class="metric-unit">%</span>
+                        <span class="metric-label">Uptime SLA</span>
+                    </div>
+                </div>
+                <div class="metric-glass">
+                    <i class="fa-solid fa-bolt gold-text"></i>
+                    <div class="metric-data">
+                        <span class="metric-value counter" data-target="1.2">0</span><span class="metric-unit">ms</span>
+                        <span class="metric-label">Telemetry Latency</span>
+                    </div>
+                </div>
+                <div class="metric-glass">
+                    <i class="fa-solid fa-shield-halved gold-text"></i>
+                    <div class="metric-data">
+                        <span class="metric-value counter" data-target="256">0</span><span
+                            class="metric-unit">-bit</span>
+                        <span class="metric-label">BSON Encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator fade-in">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll to Reveal</p>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="section" id="about">
+        <div class="container reveal">
+            <h2 class="section-title">A New Epoch in <span class="gold-text">Cyber Defense</span></h2>
+            <div class="text-block">
+                <p>AegisSec transcends traditional monitoring. It is an immutable, robust command center that
+                    centralizes Identity Access Control, Real-Time Threat Vectors, and a fully verifiable Security
+                    Ledger into a single, seamless intelligence engine.</p>
+                <p>Built exclusively with bleeding-edge UI paradigms embedded into the Windows ecosystem, AegisSec
+                    operates with unfailing precision, leveraging non-relational database power to guarantee immediate
+                    data persistence and retrieval upon command.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section alt-bg" id="features">
+        <div class="container">
+            <h2 class="section-title reveal">Core <span class="gold-text">Capabilities</span></h2>
+            <div class="grid features-grid">
+
+                <div class="card reveal-card tilt-card">
+                    <div class="card-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                    <h3>SOC Command Matrix</h3>
+                    <p>Live threat monitoring interfaces aggregating critical security alerts across multiple vectors
+                        simultaneously, ensuring no anomaly goes unnoticed.</p>
+                </div>
+
+                <div class="card reveal-card tilt-card">
+                    <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h3>Immutable Ledger</h3>
+                    <p>Every administrative action, authorization attempt, and system breach is logged permanently in
+                        the backend MongoDB instance with unalterable timestamps.</p>
+                </div>
+
+                <div class="card reveal-card tilt-card">
+                    <div class="card-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <h3>Identity Access Control</h3>
+                    <p>Granular provision and revocation mechanisms ensuring that only personnel with the explicit
+                        correct clearance level can alter or observe the system.</p>
+                </div>
+
+                <div class="card reveal-card tilt-card">
+                    <div class="card-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <h3>Dynamic Environment</h3>
+                    <p>Self-persisting System Overrides. Seamlessly switch between dark-mode Cyber-Synth interfaces or
+                        high-contrast Light themes instantly via the UI configs.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Architecture -->
+    <section class="section" id="techstack">
+        <div class="container reveal">
+            <h2 class="section-title">The <span class="gold-text">Architecture</span> Pipeline</h2>
+            <div class="arch-pipeline">
+                <div class="arch-card reveal-card">
+                    <div class="arch-icon-wrapper">
+                        <div class="circle-icon">01</div>
+                        <div class="arch-connector-line"></div>
+                    </div>
+                    <div class="arch-content">
+                        <h3 class="gold-text">Presentation Layer</h3>
+                        <h4>VB.NET | Windows Forms</h4>
+                        <p>Natively compiled thick-client executing outside browser sandboxes. Bypasses web-rendering
+                            overhead by using advanced GDI+ painting events and double-buffered panel systems to deliver
+                            dynamic "Cyber-Synth" UI animations simultaneously with rapid operations.</p>
+                    </div>
+                </div>
+
+                <div class="arch-card reveal-card">
+                    <div class="arch-icon-wrapper">
+                        <div class="circle-icon">02</div>
+                        <div class="arch-connector-line"></div>
+                    </div>
+                    <div class="arch-content">
+                        <h3 class="gold-text">Application Logic Core</h3>
+                        <h4>Event-Driven Telemetry</h4>
+                        <p>Centralized helpers (like <code>MongoHelper.vb</code>) manage the asynchronous data flows.
+                            Real-time global session states monitor user presence and activity duration, immediately
+                            invalidating sessions breaching the dynamic Auth thresholds without blocking UI threads.</p>
+                    </div>
+                </div>
+
+                <div class="arch-card reveal-card">
+                    <div class="arch-icon-wrapper">
+                        <div class="circle-icon">03</div>
+                        <div class="arch-connector-line"></div>
+                    </div>
+                    <div class="arch-content">
+                        <h3 class="gold-text">Security Service Mesh</h3>
+                        <h4>Immutable Logging Protocols</h4>
+                        <p>Actions like Access Revocation, Auth Attempts, or Clearance adjustments trigger immediate
+                            hooks via the <code>SecurityLogger</code>. Data points (Timestamp, Source IP, Event Matrix,
+                            Severity) are constructed into BSON payloads guaranteeing compliance-friendly telemetry
+                            before execution.</p>
+                    </div>
+                </div>
+
+                <div class="arch-card reveal-card">
+                    <div class="arch-icon-wrapper">
+                        <div class="circle-icon">04</div>
+                    </div>
+                    <div class="arch-content">
+                        <h3 class="gold-text">Persistence Topology</h3>
+                        <h4>MongoDB | Aggregation Framework</h4>
+                        <p>Connected via the C# driver over direct 127.0.0.1 sockets. BSON-structured logic provides
+                            NoSQL flexibility. Schemas seamlessly adapt to rapid log insertion, enabling precise metrics
+                            calculations (Risk Vectors, Session Durations) pulled dynamically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Systems Integration Section -->
+    <section class="section alt-bg" id="integrations">
+        <div class="container reveal">
+            <h2 class="section-title">Core <span class="gold-text">Integrations</span></h2>
+            <p class="text-block" style="margin-bottom: 50px;">A transparent, line-by-line technical breakdown exposing
+                the exact operational mechanics of external system connections.</p>
+
+            <div class="engineering-grid">
+                <!-- MongoDB Deep Dive -->
+                <div class="eng-module reveal-card tilt-card">
+                    <div class="eng-header">
+                        <h3><i class="fa-solid fa-database" style="color:var(--gold); margin-right: 10px;"></i>MongoDB
+                            Driver</h3>
+                        <span class="file-badge">MongoHelper.vb</span>
+                    </div>
+                    <div class="eng-body">
+                        <p>AegisSec bypasses heavy Object-Relational Mapping (ORM) and communicates natively using the
+                            exact parameters of the <code>MongoDB.Bson</code> environment.</p>
+
+                        <div
+                            style="background: rgba(10,15,25,0.8); padding: 15px; border-radius: 8px; border-left: 3px solid var(--gold); margin-top: 15px;">
+                            <code
+                                style="color: #79c0ff; display:block; margin-bottom: 10px; font-size: 0.9em;">Dim settings = MongoClientSettings.FromConnectionString("mongodb://127.0.0.1:27017")</code>
+                            <p style="font-size: 0.9em; margin-bottom: 15px;"><strong>Connection Mapping:</strong>
+                                Instantiates a secure local settings instance. Explicitly mapping to
+                                <code>127.0.0.1</code> prevents DNS resolution overhead.
+                            </p>
+
+                            <code
+                                style="color: #79c0ff; display:block; margin-bottom: 10px; font-size: 0.9em;">settings.ServerSelectionTimeout = TimeSpan.FromSeconds(2)</code>
+                            <p style="font-size: 0.9em; margin-bottom: 15px;"><strong>Failsafe Timer:</strong> Overrides
+                                the default 30-second driver timeout to prevent permanent application UI lock-ups if
+                                daemon crashes.</p>
+
+                            <code
+                                style="color: #79c0ff; display:block; margin-bottom: 10px; font-size: 0.9em;">Dim fails = If(u("failedAttempts"), u("failedAttempts").ToInt32(), 0)</code>
+                            <p style="font-size: 0.9em; margin-bottom: 0;"><strong>Type-Coercion Wrapper:</strong> By
+                                using <code>ToInt32()</code> instead of <code>AsInt32</code>, it safely parses
+                                BsonDouble variants into native app Integers without throwing driver exceptions during
+                                rendering.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Twilio Deep Dive -->
+                <div class="eng-module reveal-card tilt-card">
+                    <div class="eng-header">
+                        <h3><i class="fa-solid fa-comment-sms" style="color:var(--gold); margin-right: 10px;"></i>Twilio
+                            2FA Routing</h3>
+                        <span class="file-badge">Form1.vb</span>
+                    </div>
+                    <div class="eng-body">
+                        <p>Multi-Factor Authentication logic uses native .NET <code>HttpClient</code> boundaries to
+                            bridge outbound TCP limits into Twilio's HTTPS REST API.</p>
+
+                        <div
+                            style="background: rgba(10,15,25,0.8); padding: 15px; border-radius: 8px; border-left: 3px solid var(--gold); margin-top: 15px;">
+                            <code
+                                style="color: #79c0ff; display:block; margin-bottom: 10px; font-size: 0.9em;">Private Async Sub SendTwilioSMS(...)</code>
+                            <p style="font-size: 0.9em; margin-bottom: 15px;"><strong>Thread Forking:</strong> Declaring
+                                the routine natively as <code>Async</code> forks network loading directly from the
+                                Application loop, preventing screen freezes.</p>
+
+                            <code
+                                style="color: #79c0ff; display:block; margin-bottom: 10px; font-size: 0.9em;">Dim authTokenRaw = Convert.ToBase64String(...)</code>
+                            <p style="font-size: 0.9em; margin-bottom: 15px;"><strong>Key Shrouding:</strong> Base64
+                                encodes the strict combined mapping between the SID and global Token properties required
+                                by Twilio's Basic Authorization header.</p>
+
+                            <code
+                                style="color: #79c0ff; display:block; margin-bottom: 10px; font-size: 0.9em;">Dim response = Await client.PostAsync(...)</code>
+                            <p style="font-size: 0.9em; margin-bottom: 0;"><strong>Await Handshake:</strong> Commits the
+                                HTTP POST, completely pausing the internal function stack specifically here until
+                                Twilio's remote API confirms SMS dispatch success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Execution Flowchart Section -->
+    <section class="section" id="flowchart">
+        <div class="container reveal">
+            <h2 class="section-title">Algorithmic <span class="gold-text">Execution Flow</span></h2>
+            <p class="text-block" style="margin-bottom: 60px;">A detailed, animated visual hierarchy of AegisSec's
+                monolithic operations.</p>
+
+            <div class="animated-flowchart">
+                <div class="flow-line"></div>
+
+                <div class="flow-step reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-power-off"></i></div>
+                    <div class="flow-content text-left">
+                        <h3 class="gold-gradient">1. UI Topology Injection</h3>
+                        <p><strong>Form1 Loads:</strong> Intercepts standard sizing params via
+                            <code>FormBorderStyle.None</code>, rendering double-buffered animations via native timers
+                            without OS windows rendering boundaries.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-step reverse reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-server"></i></div>
+                    <div class="flow-content text-right">
+                        <h3 class="gold-gradient">2. Autonomous Database Seeding</h3>
+                        <p><strong>Mongo Validation:</strong> Hits TCP port 27017. Missing collections are
+                            forced-instantiated. Validates Admin profiles via atomic
+                            <code>ReplaceOne(IsUpsert=True)</code> algorithms shielding core users.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-step reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                    <div class="flow-content text-left">
+                        <h3 class="gold-gradient">3. Stage 1: Credential Hash & Lock</h3>
+                        <p><strong>Verification:</strong> Assesses BSON payload hash. Invokes MongoDB <code>$inc</code>
+                            array directly augmenting native <code>failedAttempts</code> variables mitigating SQLi
+                            structures.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step reverse reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <div class="flow-content text-right">
+                        <h3 class="gold-gradient">4. Stage 2: 2FA Transient Key</h3>
+                        <p><strong>Hyper Morph:</strong> Executes geometric bounds shifting (Pink hue takeover). Issues
+                            immediate <code>PostAsync</code> outbound JSON matrix invoking Twilio remote cell towers
+                            holding 300sec expirations.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="flow-content text-left">
+                        <h3 class="gold-gradient">5. Global Telemetry Capture</h3>
+                        <p><strong>Hardware Scrape:</strong> Queries <code>Dns.GetHostEntry</code> filtering completely
+                            for physical <code>InterNetwork</code> parameters explicitly harvesting exact local endpoint
+                            IPv4 mapping signatures natively.</p>
+                    </div>
+                </div>
+
+                <div class="flow-step reverse reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-vault"></i></div>
+                    <div class="flow-content text-right">
+                        <h3 class="gold-gradient">6. Fault-Tolerant Dual Writing</h3>
+                        <p><strong>Zero Failure Logging:</strong> Pins telemetry straight to RAM
+                            <code>List(Of SecurityEvent)</code> caching ensuring 100% UI scaling integrity, prior to
+                            invoking physical `security_logs` HDD block serialization persistence.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flow-step reveal-card tilt-card">
+                    <div class="flow-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="flow-content text-left">
+                        <h3 class="gold-gradient">7. Sub-System GPU Repaint</h3>
+                        <p><strong>SOC Boots:</strong> Instantiates DataGridView controls. Actively utilizes
+                            <code>CellFormatting</code> delegates. Repaints explicit row bounding structures rendering
+                            High-Severity items completely natively via GDI+ overlays.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Scalability & Backend Performance Section -->
+    <section class="section alt-bg" id="scalability">
+        <div class="container reveal">
+            <h2 class="section-title">Backend <span class="gold-text">Performance & Scalability</span></h2>
+            <p class="text-block" style="margin-bottom: 50px;">Real-time metrics demonstrating AegisSec's monolithic
+                resilience and data throughput capabilities under high-stress security operations.</p>
+
+            <div class="metrics-dashboard">
+                <div class="chart-container reveal-card tilt-card">
+                    <h3 class="chart-title"><i class="fa-solid fa-server gold-text"></i> Server Response Scalability
+                    </h3>
+                    <p class="chart-desc">Demonstrates the linear time complexity of the bespoke MongoDB
+                        <code>BsonDocument</code> direct-query ingestion over simulated thousands of concurrent
+                        brute-force logins.
+                    </p>
+                    <div style="position: relative; height: 300px; width: 100%;">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container reveal-card tilt-card">
+                    <h3 class="chart-title"><i class="fa-solid fa-memory gold-text"></i> RAM Allocation Topology</h3>
+                    <p class="chart-desc">Minute division of <code>SecurityLogger</code> and UI Thread heap consumption.
+                        The Dual-Write fallback ensures GUI operations consume mere megabytes.</p>
+                    <div
+                        style="position: relative; height: 300px; width: 100%; display: flex; justify-content: center;">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Minute Backend Details -->
+            <div class="backend-details" style="margin-top: 50px;">
+                <h3 class="gold-gradient" style="margin-bottom: 25px; font-size: 1.8rem;">Monolithic Core Internals</h3>
+                <div class="backend-grid">
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-microchip"></i>
+                        <h4>Thread-Safe Static Modules</h4>
+                        <p>The <code>MongoHelper</code> is architected as a static VB.NET Module, ensuring the
+                            <code>MongoClient</code> singleton is physically instantiated in the high-frequency memory
+                            heap exactly once, preventing TCP port exhaustion and handle leaks during rapid multi-form
+                            switches.
+                        </p>
+                    </div>
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-database"></i>
+                        <h4>BSON binary serialization</h4>
+                        <p>Bypassing JSON stringification, AegisSec communicates via raw <code>BsonDocument</code>
+                            streams. This allows for direct binary mapping of CLR types to MongoDB's WiredTiger engine,
+                            reducing CPU cycles by 40% compared to standard REST-based security apps.</p>
+                    </div>
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-shield-virus"></i>
+                        <h4>Atomic $set Mutators</h4>
+                        <p>Update operations utilize MongoDB's atomic <code>$set</code> and <code>$inc</code> operators.
+                            This eliminates "Lost Update" scenarios in multi-user environments by performing the
+                            modification directly on the primary index shard without a local fetch-save cycle.</p>
+                    </div>
+                </div>
+
+                <div class="backend-grid" style="margin-top: 30px;">
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-code"></i>
+                        <h4>GDI+ Native Painting</h4>
+                        <p>The Dashboard utilizes <code>OnPaint</code> overrides rather than standard control-rendering.
+                            This allows the GPU to directly composite glowing neon borders and semi-transparent glass
+                            panels, maintaining a fluid 60FPS UI response even during massive background data ingestion.
+                        </p>
+                    </div>
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <h4>Dns InterNetwork Filtering</h4>
+                        <p>The <code>SecurityLogger</code> executes a hardware-level IP scrape using
+                            <code>System.Net.Sockets.AddressFamily.InterNetwork</code>. This explicitly bypasses IPv6
+                            Teredo tunnels and virtual loopbacks, ensuring the recorded Telemetry is physically tied to
+                            the primary hardware NIC.
+                        </p>
+                    </div>
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h4>Non-Blocking Async Await</h4>
+                        <p>The Twilio 2FA engine is non-blocking. By using <code>Await PostAsync</code>, the application
+                            yields its execution context back to the Windows Message Loop, preventing the common "App
+                            Not Responding" white-screen ghosting during high-latency network calls.</p>
+                    </div>
+                </div>
+                <div class="backend-grid" style="margin-top: 30px;">
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-code-compare"></i>
+                        <h4>Dynamic Type Coercion</h4>
+                        <p>The system intelligently mitigates BSON driver type-mismatches. By utilizing
+                            <code>ToInt32()</code> instead of strict <code>AsInt32</code> casting, it dynamically scales
+                            <code>BsonDouble</code> variants returned by MongoDB into compliant CLR Integers,
+                            neutralizing potential session-render crashes.</p>
+                    </div>
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-stopwatch-20"></i>
+                        <h4>Aggressive Driver Timeouts</h4>
+                        <p>Standard drivers wait 30s for a lost server; AegisSec aggressively overrides this to
+                            <strong>2000ms</strong> via <code>ServerSelectionTimeout</code>. This ensures the UI thread
+                            fails fast and remains interactive during catastrophic network severance.</p>
+                    </div>
+                    <div class="detail-box reveal-item">
+                        <i class="fa-solid fa-vector-square"></i>
+                        <h4>Double Buffered GDI+ Flip</h4>
+                        <p>The primary canvas is initialized with <code>OptimizedDoubleBuffer</code> logic. This creates
+                            a high-speed off-screen memory map where the GPU assembles the interface prior to flipping
+                            it to the monitor, eliminating 100% of visible rendering flicker.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Levels Section -->
+    <section class="section" id="access">
+        <div class="container reveal">
+            <h2 class="section-title">Clearance <span class="gold-text">Hierarchies</span></h2>
+            <ul class="access-list">
+                <li class="access-item reveal-item">
+                    <div class="access-role gold-text">OVERLORD (Admin)</div>
+                    <div class="access-desc">Unrestricted access. Capable of viewing all telemetry, overriding
+                        configurations, and provisioning/revoking system access for any subordinate role.</div>
+                </li>
+                <li class="access-item reveal-item">
+                    <div class="access-role">Security Analyst</div>
+                    <div class="access-desc">Dedicated threat hunters. Authorized to investigate the Immutable Ledger,
+                        track active threat vectors, and resolve system anomalies, but cannot modify global
+                        configurations.</div>
+                </li>
+                <li class="access-item reveal-item">
+                    <div class="access-role">Auditor</div>
+                    <div class="access-desc">Read-only oversight clearance. Bound to review actions and ensure
+                        compliance without the capability of altering states or overriding environment behaviors.</div>
+                </li>
+                <li class="access-item reveal-item">
+                    <div class="access-role">User</div>
+                    <div class="access-desc">Standard operatives. Subject to stringent access policies and zero-trust
+                        tracking across all system operations.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Database Schema Section -->
+    <section class="section alt-bg" id="schema">
+        <div class="container">
+            <h2 class="section-title reveal">Entity Relational <span class="gold-text">Topologies</span></h2>
+
+            <div class="schema-interactive-container reveal">
+                <div class="schema-tabs">
+                    <button class="schema-tab active" data-target="tab-users"><i class="fa-solid fa-users"></i>
+                        users</button>
+                    <button class="schema-tab" data-target="tab-logs"><i class="fa-solid fa-file-shield"></i>
+                        security_logs</button>
+                    <button class="schema-tab" data-target="tab-alerts"><i class="fa-solid fa-bell"></i> alerts</button>
+                    <button class="schema-tab" data-target="tab-risk"><i class="fa-solid fa-chart-line"></i>
+                        risk_scores</button>
+                    <button class="schema-tab" data-target="tab-settings"><i class="fa-solid fa-gear"></i>
+                        system_settings</button>
+                </div>
+
+                <div class="schema-content-area tilt-card">
+                    <div class="schema-pane active" id="tab-users">
+                        <h3 class="gold-gradient">Collection: users</h3>
+                        <p class="schema-desc">Primary identity storage enforcing granular Role-Based Access Control and
+                            biometric-ready authentication frameworks.</p>
+                        <ul class="code-list">
+                            <li><span>_id:</span> ObjectId</li>
+                            <li><span>username:</span> String (Unique Header)</li>
+                            <li><span>password:</span> String (Hashed BSON String)</li>
+                            <li><span>role:</span> String (Clearance Level enum)</li>
+                            <li><span>failedAttempts:</span> Integer</li>
+                            <li><span>status:</span> String (ACTIVE/LOCKED)</li>
+                            <li><span>lastLogin:</span> DateTime (UTC)</li>
+                            <li><span>email/phone:</span> String</li>
+                        </ul>
+                    </div>
+
+                    <div class="schema-pane" id="tab-logs">
+                        <h3 class="gold-gradient">Collection: security_logs</h3>
+                        <p class="schema-desc">Immutable append-only ledger tracking every operational shift, access
+                            vector, and terminal command.</p>
+                        <ul class="code-list">
+                            <li><span>_id:</span> ObjectId</li>
+                            <li><span>eventType:</span> String (e.g., FAILED_LOGIN)</li>
+                            <li><span>username:</span> String (Linked UID)</li>
+                            <li><span>severity:</span> String (HIGH/MEDIUM/LOW)</li>
+                            <li><span>module:</span> String (e.g., Auth/Access)</li>
+                            <li><span>description:</span> String (Event details)</li>
+                            <li><span>sourceIP:</span> String (IPv4 Trace)</li>
+                            <li><span>timestamp:</span> DateTime (Precision Logging)</li>
+                        </ul>
+                    </div>
+
+                    <div class="schema-pane" id="tab-alerts">
+                        <h3 class="gold-gradient">Collection: alerts</h3>
+                        <p class="schema-desc">Asynchronous threat notifications generated when system heuristics detect
+                            anomalies.</p>
+                        <ul class="code-list">
+                            <li><span>_id:</span> ObjectId</li>
+                            <li><span>alertId:</span> String (e.g., TRK-9901)</li>
+                            <li><span>severity:</span> String (CRITICAL/HIGH)</li>
+                            <li><span>title:</span> String</li>
+                            <li><span>assignedTo:</span> String (Investigator UID)</li>
+                            <li><span>createdAt:</span> DateTime</li>
+                            <li><span>status:</span> String (OPEN/CLOSED)</li>
+                        </ul>
+                    </div>
+
+                    <div class="schema-pane" id="tab-risk">
+                        <h3 class="gold-gradient">Collection: risk_scores</h3>
+                        <p class="schema-desc">Real-time quantification of threat levels assigned to specific nodes,
+                            systems, or operatives.</p>
+                        <ul class="code-list">
+                            <li><span>_id:</span> ObjectId</li>
+                            <li><span>category:</span> String (Network/Identity)</li>
+                            <li><span>score:</span> Integer (Percentage 0 - 100)</li>
+                            <li><span>entityId:</span> String (Target Node/User)</li>
+                            <li><span>factors:</span> Array[String] (Vulnerabilities)</li>
+                            <li><span>lastUpdated:</span> DateTime</li>
+                        </ul>
+                    </div>
+
+                    <div class="schema-pane" id="tab-settings">
+                        <h3 class="gold-gradient">Collection: system_settings</h3>
+                        <p class="schema-desc">Monolithic configuration documents managed via bulk 'upsert' operations
+                            altering global parameters instantly.</p>
+                        <ul class="code-list">
+                            <li><span>_id:</span> ObjectId</li>
+                            <li><span>key:</span> String (auth_policy/ui/logging)</li>
+                            <li><span>value:</span> BsonDocument (Nested Payload)</li>
+                            <li><span>description:</span> String</li>
+                            <li><span>updatedAt:</span> DateTime</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h2 class="gold-text">AegisSec</h2>
+            <p>Secure. Immutable. Uncompromising.</p>
+            <p class="copyright">&copy; 2026 Sovereign Systems. All systems operational.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
