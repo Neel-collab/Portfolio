@@ -904,6 +904,7 @@ document.querySelectorAll('[data-tilt]').forEach(el => {
     const termWidget = document.getElementById('terminalWidget');
     const termToggleBtn = document.getElementById('termToggleBtn');
     const termClose = document.getElementById('termClose');
+    const termCloseBtn = document.getElementById('termCloseBtn');
     const termInput = document.getElementById('termInput');
     const termOutput = document.getElementById('termOutput');
     const termHeader = document.getElementById('terminalHeader');
@@ -919,26 +920,57 @@ document.querySelectorAll('[data-tilt]').forEach(el => {
     termClose.addEventListener('click', () => {
         termWidget.classList.remove('open');
     });
+    termCloseBtn.addEventListener('click', () => {
+        termWidget.classList.remove('open');
+        playSound('click');
+    });
 
-    // Drag logic
+    // Drag logic (mouse + touch)
     let isDragging = false, startX, startY, startLeft, startTop;
-    termHeader.addEventListener('mousedown', (e) => {
+
+    function dragStart(clientX, clientY) {
         isDragging = true;
-        startX = e.clientX; startY = e.clientY;
+        startX = clientX; startY = clientY;
         const rect = termWidget.getBoundingClientRect();
-        // Switch from bottom/right fixed to left/top fixed for easier dragging
         termWidget.style.bottom = 'auto';
         termWidget.style.right = 'auto';
         termWidget.style.left = rect.left + 'px';
         termWidget.style.top = rect.top + 'px';
         startLeft = rect.left; startTop = rect.top;
-    });
-    document.addEventListener('mousemove', (e) => {
+    }
+
+    function dragMove(clientX, clientY) {
         if (!isDragging) return;
-        termWidget.style.left = (startLeft + e.clientX - startX) + 'px';
-        termWidget.style.top = (startTop + e.clientY - startY) + 'px';
-    });
-    document.addEventListener('mouseup', () => isDragging = false);
+        let newLeft = startLeft + clientX - startX;
+        let newTop = startTop + clientY - startY;
+        // Clamp within viewport
+        const w = termWidget.offsetWidth;
+        const h = termWidget.offsetHeight;
+        newLeft = Math.max(0, Math.min(window.innerWidth - w, newLeft));
+        newTop = Math.max(0, Math.min(window.innerHeight - h, newTop));
+        termWidget.style.left = newLeft + 'px';
+        termWidget.style.top = newTop + 'px';
+    }
+
+    function dragEnd() { isDragging = false; }
+
+    // Mouse
+    termHeader.addEventListener('mousedown', (e) => dragStart(e.clientX, e.clientY));
+    document.addEventListener('mousemove', (e) => dragMove(e.clientX, e.clientY));
+    document.addEventListener('mouseup', dragEnd);
+
+    // Touch
+    termHeader.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        dragStart(t.clientX, t.clientY);
+    }, { passive: true });
+    document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const t = e.touches[0];
+        dragMove(t.clientX, t.clientY);
+    }, { passive: false });
+    document.addEventListener('touchend', dragEnd);
 
     // Command logic
     const commands = {
